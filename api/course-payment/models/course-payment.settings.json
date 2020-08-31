@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_payments",
+  "info": {
+    "name": "CoursePayment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "course": {
+      "model": "course"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "isCompleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "isPaid": {
+      "type": "boolean",
+      "default": false
+    },
+    "paymentReceipt": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}
